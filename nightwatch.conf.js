@@ -12,8 +12,8 @@ const driverPath = `${rootPath}/node_modules/selenium-standalone/.selenium`
 
 module.exports = ((settings) => {
     // 监听进程参数
-    console.log(process.argv)
     let browser = process.argv[2] ? process.argv[2].replace(/-/g, '') : baseConfig.default_browser
+    // console.log(browser)
 
     // 告诉 Nightwatch 我的 Selenium 在哪里。
     settings.selenium.server_path = `${driverPath}/selenium-server/${seleniumConfig.selenium.version}-server.jar`

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./startup.js",
+    "phantomjs": "node ./startup.js --phantomjs",
+    "chrome": "node ./startup.js --chrome",
     "selenium-setup": "node ./build/selenium-setup.js",
-    "selenium-start": "node ./build/selenium-start.js",
-    "phantomjs": "node ./bin/startup.js --phantomjs",
-    "chrome": "node ./bin/startup.js --chrome"
+    "selenium-start": "node ./build/selenium-start.js"
   },
   "repository": {
     "type": "git",
