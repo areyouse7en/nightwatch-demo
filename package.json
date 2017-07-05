@@ -1,14 +1,14 @@
 {
   "name": "nightwatch-demo",
-  "version": "1.0.0",
-  "description": "使用nightwatch，控制selenium做端对端测试的demo",
+  "version": "1.1.0",
+  "description": "nightwatch demo",
   "main": "index.js",
   "scripts": {
     "start": "node ./startup.js",
     "phantomjs": "node ./startup.js --phantomjs",
     "chrome": "node ./startup.js --chrome",
-    "selenium-setup": "node ./build/selenium-setup.js",
-    "selenium-start": "node ./build/selenium-start.js"
+    "selenium-setup": "node ./config/selenium-setup.js",
+    "selenium-start": "node ./config/selenium-start.js"
   },
   "repository": {
     "type": "git",

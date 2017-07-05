@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['search'],
     // module.exports 导出一个对象，对象的 Key 即为测试用例名称，您可以编写多个测试用例，Nightwatch 将依次执行。
     'Seatch in baidu.': function(client) {
         // client 是代码运行时 Nightwatch 提供的对象，所有对浏览器进行的操作都将使用此对象调取

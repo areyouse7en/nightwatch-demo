@@ -1,47 +1,51 @@
+// nightwatch的配置（如果有nightwatch.conf.js，则会优先读取nightwatch.conf.js）
+// http://nightwatchjs.org/gettingstarted#basic-settings
+// 这里只列一些必要选项
 {
-    "default_browser": "phantomjs",
-    "src_folders": ["tests"],
-    "output_folder": "reports",
-    "custom_commands_path": "",
-    "custom_assertions_path": "",
-    "page_objects_path": "",
-    "globals_path": "",
+    "src_folders": ["tests"], // 测试脚本文件夹
+    "output_folder": "reports", // 测试报告输出文件夹
 
+    // http://nightwatchjs.org/gettingstarted#selenium-settings
+    // selenium相关配置
     "selenium": {
-        "start_process": true,
-        "server_path": "",
-        "log_path": "",
-        "host": "127.0.0.1",
-        "port": 4444,
+        "start_process": true, // 自动开启selenium进程
+        "server_path": "", // selenium-server-standalone的jar包的位置，当start_process为true时需要配置此项
+        "port": 4444, // selenium监听端口
         "cli_args": {
+            // 各浏览器驱动路径
+            "webdriver.firefox.driver": "",
+            "webdriver.ie.driver": "",
             "webdriver.chrome.driver": ""
         }
     },
 
+    // http://nightwatchjs.org/gettingstarted#test-settings
     "test_settings": {
+        // 测试环境配置，可以写多个,通过 nightwatch --env abc 调用
+        // 默认必须有一个default，其他的会继承default，然后可以重写
+        // 这些配置会以实例对象的方式传递给测试用例(client)，默认深拷贝，写用例的时候会用到
         "default": {
-            "launch_url": "http://localhost",
-            "selenium_port": 4444,
-            "selenium_host": "localhost",
-            "silent": true,
-            "screenshots": {
-                "enabled": false,
-                "path": ""
-            },
-            "desiredCapabilities": {
-                "browserName": "",
+            "launch_url": "http://localhost", // 启动地址,可为空
+            "desiredCapabilities": { // 指定使用的浏览器配置
+                "browserName": "chrome",
                 "javascriptEnabled": true,
                 "acceptSslCerts": true,
-                "phantomjs.binary.path": ""
+                // "chromeOptions": {
+                //     "args": ["--no-sandbox"]
+                // },
+                // "phantomjs.binary.path": "",
             }
         },
 
-        "chrome": {
+        "baidutest": {
+            "launch_url": "http://www.baidu.com",
+            "globals": { // 全局变量，可以在测试用例里使用
+                "testwords": "什么是nightwatch"
+            },
             "desiredCapabilities": {
-                "browserName": "chrome",
-                "javascriptEnabled": true,
-                "acceptSslCerts": true
-            }
+                "browserName": "chrome"
+            },
+            "filter": "tests/baidu.js" // 需要测试的文件
         }
     }
 }
